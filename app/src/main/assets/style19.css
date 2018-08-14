@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.title_news {
+    font-weight: bold;
+    padding-left: 5px;
+    font-size: 19px;
+}
+.lead_news {
+    font-style: italic;
+    padding-left: 5px;
+    font-size: 19px;
+}
+.author {
+    font-size: 19px;
+}
+p {
+    padding-left: 5px;
+    font-size: 19px;
+}
+img {
+    width: 100%;
+}

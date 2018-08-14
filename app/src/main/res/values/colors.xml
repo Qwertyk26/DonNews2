@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#575756</color>
+    <color name="colorPrimaryDark">#e30513</color>
+    <color name="colorAccent">#ccc</color>
+    <color name="toolbarColor">#e30513</color>
+    <color name="menuColor">#262626</color>
+    <color name="leadColor">#6f6f6e</color>
+    <color name="dividerColor">#c6c6c5</color>
+</resources>

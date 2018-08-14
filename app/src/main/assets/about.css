@@ -1,0 +1,14 @@
+body {
+    padding: 10px;
+}
+p {
+    font-size: 18px;
+    font-family: PT_Serif;
+}
+img {
+    width: 100%;
+}
+@font-face {
+    font-family: PT_Serif;
+    src: url(PT_Serif-Web-Regular.ttf);
+}

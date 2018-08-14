@@ -1,0 +1,16 @@
+@charset "utf-8";
+.author {
+    font-size: 16px;
+}
+p {
+    padding-left: 5px;
+    font-size: 16px;
+    font-family: 'PT_Sans';
+}
+img {
+    width: 100%;
+}
+@font-face {
+    font-family: 'PT_Sans';
+    src: url('PT_Sans-Caption-Web-Regular.ttf');
+}

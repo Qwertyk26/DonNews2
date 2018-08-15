@@ -3,11 +3,18 @@ package donnews.ru.donnews;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.yandex.mobile.ads.AdEventListener;
+import com.yandex.mobile.ads.AdRequest;
+import com.yandex.mobile.ads.AdRequestError;
+import com.yandex.mobile.ads.AdSize;
+import com.yandex.mobile.ads.AdView;
 
 import javax.inject.Inject;
 
@@ -33,6 +40,8 @@ public class AboutActivity extends AppCompatActivity implements AboutInterface {
     ProgressBar mProgressBar;
     @Bind(R.id.webView)
     WebView mWebView;
+    @Bind(R.id.adView)
+    AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,36 @@ public class AboutActivity extends AppCompatActivity implements AboutInterface {
         mAboutPresenter = new AboutPresenter(this);
         mAboutPresenter.onCreate();
         mAboutPresenter.getAbout();
+        adView.setBlockId("R-M-240930-2");
+        adView.setAdSize(AdSize.BANNER_320x50);
+        final AdRequest adRequest = new AdRequest.Builder().build();
+        adView.setAdEventListener(new AdEventListener() {
+            @Override
+            public void onAdFailedToLoad(AdRequestError adRequestError) {
+                Log.d("Ads error", adRequestError.getDescription());
+            }
+
+            @Override
+            public void onAdLoaded() {
+
+            }
+
+            @Override
+            public void onAdClosed() {
+
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+
+            }
+
+            @Override
+            public void onAdOpened() {
+
+            }
+        });
+        adView.loadAd(adRequest);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

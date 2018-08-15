@@ -46,7 +46,7 @@ import donnews.ru.donnews.Fragments.MainNewsFragment;
 import donnews.ru.donnews.Fragments.SpecproectsFragment;
 import donnews.ru.donnews.Fragments.StoriesFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdEventListener {
 
     @Bind(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView mNavigationView;
     @Bind(R.id.adView)
     AdView mAdView;
+    @Bind(R.id.adView_drawer)
+    AdView adViewDrawer;
     public static Activity ma;
 
     @Override
@@ -131,40 +133,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        mAdView.setBlockId("R-M-DEMO-320x50-app_install");
+        mAdView.setBlockId("R-M-240930-2");
+        adViewDrawer.setBlockId("R-M-240930-2");
         mAdView.setAdSize(AdSize.BANNER_320x50);
+        adViewDrawer.setAdSize(AdSize.BANNER_320x50);
         final AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.setAdEventListener(new AdEventListener() {
-            @Override
-            public void onAdFailedToLoad(AdRequestError adRequestError) {
-                Log.d("Ads error", adRequestError.getDescription());
-            }
-
-            @Override
-            public void onAdLoaded() {
-
-            }
-
-            @Override
-            public void onAdClosed() {
-
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-
-            }
-
-            @Override
-            public void onAdOpened() {
-
-            }
-        });
+        adViewDrawer.setAdEventListener(this);
+        mAdView.setAdEventListener(this);
         mAdView.loadAd(adRequest);
+        adViewDrawer.loadAd(adRequest);
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FullNewsFragment(), "Главная");
         adapter.addFragment(new MainNewsFragment(), "Новости");
         adapter.addFragment(new StoriesFragment(), "Сюжеты");
         adapter.addFragment(new SpecproectsFragment(), "Спецпроекты");
@@ -172,11 +152,12 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new AuthorcolumnFragment(), "Авторская колонка");
         viewPager.setAdapter(adapter);
     }
+
     class ViewPagerAdapter extends FragmentStatePagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager) {
+        ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
 
@@ -190,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
@@ -223,5 +204,29 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onAdClosed() {
+
+    }
+
+    @Override
+    public void onAdFailedToLoad(@NonNull AdRequestError adRequestError) {
+        Log.d("Ads error", adRequestError.getDescription());
+    }
+
+    @Override
+    public void onAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onAdLoaded() {
+
+    }
+
+    @Override
+    public void onAdOpened() {
+
     }
 }

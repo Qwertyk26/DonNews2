@@ -13,6 +13,7 @@ import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,11 @@ import android.widget.Toast;
 
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
 import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
+import com.yandex.mobile.ads.AdEventListener;
+import com.yandex.mobile.ads.AdRequest;
+import com.yandex.mobile.ads.AdRequestError;
+import com.yandex.mobile.ads.AdSize;
+import com.yandex.mobile.ads.AdView;
 
 import java.util.ArrayList;
 
@@ -67,6 +73,8 @@ public class DetailNewsActivity extends AppCompatActivity implements LoadMoreInt
     Button sendBtn;
     Helper mHelper;
     ProgressDialog mProgressBar;
+    @Bind(R.id.adView)
+    AdView adView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -155,6 +163,36 @@ public class DetailNewsActivity extends AppCompatActivity implements LoadMoreInt
                 mSendCommentPresenter.addComment();
             }
         });
+        adView.setBlockId("R-M-240930-2");
+        adView.setAdSize(AdSize.BANNER_320x50);
+        final AdRequest adRequest = new AdRequest.Builder().build();
+        adView.setAdEventListener(new AdEventListener() {
+            @Override
+            public void onAdFailedToLoad(AdRequestError adRequestError) {
+                Log.d("Ads error", adRequestError.getDescription());
+            }
+
+            @Override
+            public void onAdLoaded() {
+
+            }
+
+            @Override
+            public void onAdClosed() {
+
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+
+            }
+
+            @Override
+            public void onAdOpened() {
+
+            }
+        });
+        adView.loadAd(adRequest);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

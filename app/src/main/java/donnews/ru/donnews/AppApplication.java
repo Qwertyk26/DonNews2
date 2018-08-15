@@ -26,6 +26,8 @@ public class AppApplication extends Application {
     private void initMetric() {
         YandexMetricaConfig.Builder configBuilder = YandexMetricaConfig.newConfigBuilder("ff75bdde-a2dd-49d7-b966-3fa3c7921ca2");
         YandexMetrica.activate(getApplicationContext(), configBuilder.build());
+        configBuilder.withLocationTracking(true);
+        configBuilder.withCrashReporting(true);
     }
     public ApiComponent getApiComponent() {
         return apiComponent;

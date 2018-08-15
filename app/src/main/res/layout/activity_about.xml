@@ -14,13 +14,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_dn_logo"
-        android:layout_gravity="left"/>
+        android:layout_gravity="start"/>
     </android.support.v7.widget.Toolbar>
+    <com.yandex.mobile.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolBar" />
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolBar"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adView"/>
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"

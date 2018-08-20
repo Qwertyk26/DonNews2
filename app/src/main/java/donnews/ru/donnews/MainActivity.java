@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements AdEventListener {
 
     @Override
     public void onAdFailedToLoad(@NonNull AdRequestError adRequestError) {
-        Log.d("Ads error", adRequestError.getDescription());
+        Log.d("Ads error", adRequestError.toString());
     }
 
     @Override

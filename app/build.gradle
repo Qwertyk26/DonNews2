@@ -8,14 +8,14 @@ android {
         applicationId "donnews.ru.donnews"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 4
-        versionName "1.0.5"
+        versionCode 8
+        versionName "1.0.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

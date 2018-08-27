@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements AdEventListener {
         });
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         mAdView.setBlockId("R-M-240930-2");
-        adViewDrawer.setBlockId("R-M-240930-2");
+        adViewDrawer.setBlockId("R-M-240930-4");
         mAdView.setAdSize(AdSize.BANNER_320x50);
         adViewDrawer.setAdSize(AdSize.BANNER_320x50);
         final AdRequest adRequest = new AdRequest.Builder().build();

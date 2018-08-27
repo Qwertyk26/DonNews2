@@ -173,12 +173,6 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         Date convertedDate = new Date();
         if(holder instanceof ViewHolder) {
             ((ViewHolder) holder).mCommentsImageView.setColorFilter(Color.parseColor("#FFFFFF"));
-            if (mNewsItem.getLead().isEmpty()) {
-                ((ViewHolder) holder).mLeadTextView.setVisibility(View.GONE);
-            } else {
-                ((ViewHolder) holder).mLeadTextView.setTypeface(typefaceLead);
-                ((ViewHolder) holder).mLeadTextView.setText(mNewsItem.getLead());
-            }
             ((ViewHolder) holder).mTitleTextView.setTypeface(typefaceTitle);
             ((ViewHolder) holder).mTitleTextView.setText(mNewsItem.getTitle());
             if (mNewsItem.getComments_count() == 0) {
@@ -225,18 +219,13 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         } else if (holder instanceof AuthorViewHolder) {
             screenWidth = mContext.getResources().getDisplayMetrics().widthPixels;
             newHeight = (screenWidth * mNewsItem.getImage_height()) / mNewsItem.getImage_width();
-            ((AuthorViewHolder) holder).mCoverImage.getLayoutParams().width = screenWidth / 2;
-            ((AuthorViewHolder) holder).mCoverImage.getLayoutParams().height = ((int) newHeight) / 2;
+            ((AuthorViewHolder) holder).mCoverImage.getLayoutParams().width = screenWidth / 3;
+            ((AuthorViewHolder) holder).mCoverImage.getLayoutParams().height = ((int) newHeight) / 3;
             Picasso.with(mContext).load(mNewsItem.getImage()).into(((AuthorViewHolder) holder).mCoverImage);
             ((AuthorViewHolder) holder).mTitleTextView.setTypeface(typefaceTitle);
-            ((AuthorViewHolder) holder).mCategoryTitle.setTypeface(typefaceTitle);
             ((AuthorViewHolder) holder).mTitleTextView.setText(mNewsItem.getTitle());
-            ((AuthorViewHolder) holder).mPostTextView.setText(Html.fromHtml(mNewsItem.getPost()));
             ((AuthorViewHolder) holder).mAuthorTextView.setText(mNewsItem.getAuthor_name());
-            ((AuthorViewHolder) holder).mPostTextView.setTypeface(typefaceLead);
             ((AuthorViewHolder) holder).mAuthorTextView.setTypeface(typefaceTitle);
-            ((AuthorViewHolder) holder).mCategoryTitle.setText(mNewsItem.getCategory_name());
-
         } else if (holder instanceof StoriesViewHolder) {
             screenWidth = mContext.getResources().getDisplayMetrics().widthPixels;
             newHeight = (screenWidth * mNewsItem.getImage_height()) / mNewsItem.getImage_width();
@@ -315,8 +304,6 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.lead)
-        TextView mLeadTextView;
         @Bind(R.id.title) TextView mTitleTextView;
         @Bind(R.id.coverImage)
         ImageView mCoverImage;
@@ -398,10 +385,9 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         @Bind(R.id.author_name)
         TextView mAuthorTextView;
         @Bind(R.id.title) TextView mTitleTextView;
-        @Bind(R.id.post) TextView mPostTextView;
         @Bind(R.id.coverImage)
         ImageView mCoverImage;
-        @Bind(R.id.category_title) TextView mCategoryTitle;
+
         AuthorViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

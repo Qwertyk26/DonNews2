@@ -209,8 +209,7 @@ public class NewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 e.printStackTrace();
             }
             if (mNewsItem.getComments_count() == 0) {
-                ((OtherHolder) holder).mCommentsImageView.setVisibility(View.GONE);
-                ((OtherHolder) holder).mCommentsCountTextView.setText("");
+                ((OtherHolder) holder).mCommentsLayout.setVisibility(View.GONE);
             } else {
                 ((OtherHolder) holder).mCommentsImageView.setVisibility(View.VISIBLE);
                 ((OtherHolder) holder).mCommentsCountTextView.setText(String.valueOf(mNewsItem.getComments_count()));

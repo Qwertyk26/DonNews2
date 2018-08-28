@@ -163,7 +163,7 @@ public class DetailNewsActivity extends AppCompatActivity implements LoadMoreInt
                 mSendCommentPresenter.addComment();
             }
         });
-        adView.setBlockId("R-M-240930-5");
+        adView.setBlockId("R-M-240930-2");
         adView.setAdSize(AdSize.BANNER_320x50);
         final AdRequest adRequest = new AdRequest.Builder().build();
         adView.setAdEventListener(new AdEventListener() {

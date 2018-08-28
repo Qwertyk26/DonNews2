@@ -60,6 +60,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.github.rubensousa:gravitysnaphelper:1.1'
     compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2'
-    compile 'com.yandex.android:mobileads:2.71'
+    compile 'com.yandex.android:mobileads:2.73'
     compile 'com.yandex.android:mobmetricalib:3.2.2'
 }

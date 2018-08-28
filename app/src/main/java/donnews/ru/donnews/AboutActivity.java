@@ -58,7 +58,7 @@ public class AboutActivity extends AppCompatActivity implements AboutInterface {
         mAboutPresenter.onCreate();
         mAboutPresenter.getAbout();
         adView.setBlockId("R-M-240930-2");
-        adView.setAdSize(AdSize.BANNER_320x50);
+        adView.setAdSize(AdSize.BANNER_300x250);
         final AdRequest adRequest = new AdRequest.Builder().build();
         adView.setAdEventListener(new AdEventListener() {
             @Override

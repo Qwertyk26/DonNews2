@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
+            android:background="@android:color/white"
             app:elevation="0dp">
 
             <android.support.v7.widget.Toolbar
@@ -32,22 +33,23 @@
                     android:layout_gravity="left"
                     app:srcCompat="@drawable/ic_dn_logo" />
             </android.support.v7.widget.Toolbar>
+
+
         </android.support.design.widget.AppBarLayout>
 
-        <com.yandex.mobile.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:clipToPadding="false"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:rvp_singlePageFling="true" />
+        <com.yandex.mobile.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/share_btn"

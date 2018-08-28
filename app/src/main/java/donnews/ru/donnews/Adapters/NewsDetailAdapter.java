@@ -115,7 +115,7 @@ public class NewsDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         @Bind(R.id.progressBar)
         ProgressBar progressBar;
 
-        public ProgressViewHolder(View v) {
+        ProgressViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, itemView);
         }
